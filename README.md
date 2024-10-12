@@ -15,7 +15,7 @@ Replace the API key in .env.local with Google API key. Refer to [Google Book API
 Please contact author if your API key does not work.
 
 ## Update Log
-[] Task 1: Connect to Google Books API
+[x] Task 1: Connect to Google Books API
 [] Task 2: Build a search bar
 [] Task 3: Build a search result list
 [] Task 4: Build a books detail page
