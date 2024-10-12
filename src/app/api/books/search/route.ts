@@ -1,10 +1,18 @@
-/*
-Function:
-API route to search books that matches the query from Google Books API
-*/
-
 import { NextResponse } from "next/server";
 import axios from "axios";
+
+const GOOGLE_BOOKS_BASE_URL = "https://www.googleapis.com/books/v1/volumes";
+
+/**
+ * This code handles API routing for searching books in Google Books API
+ * @param {Request} request - HTTP request object
+ * @returns {Promise<NextResponse>} - 
+ * 
+ * @example
+ * // Successful response
+ * // Request: GET /api/books/search?q=javascript&page=1
+ * // Response: JSON containing Google Books API response
+ */
 
 export async function GET(request:Request){
     const {searchParams} = new URL(request.url);
@@ -17,7 +25,7 @@ export async function GET(request:Request){
     }
 
     try {
-         const response = await axios.get("https://www.googleapis.com/books/v1/volumes", {
+         const response = await axios.get(GOOGLE_BOOKS_BASE_URL, {
             params: {
                 q: query,
                 startIndex,
@@ -26,17 +34,6 @@ export async function GET(request:Request){
             },
          });
          return NextResponse.json(response.data);
-
-        // const response = await fetch(
-        //     `https://www.googleapis.com/books/v1/volumes?q=${query}&maxResult=${10}`
-        // );
-        
-        // if (!response.ok){
-        //     throw new Error('Failed to fetch data from Google Books API');
-        // }
-    
-        // const books = await response.json();
-        // return NextResponse.json(books);
 
     } catch (error){
         return NextResponse.json({error: (error as Error).message}, {status: 500});

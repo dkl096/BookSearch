@@ -16,7 +16,7 @@ Please contact author if your API key does not work.
 
 ## Update Log
 [x] Task 1: Connect to Google Books API
-[] Task 2: Build a search bar
-[] Task 3: Build a search result list
+[x] Task 2: Build a search bar
+[x] Task 3: Build a search result list
 [] Task 4: Build a books detail page
 [] Task 5: Add responsiveness to UI

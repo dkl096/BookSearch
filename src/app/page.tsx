@@ -6,6 +6,9 @@ import dynamic from "next/dynamic";
 import SearchBar from "./components/SearchBar";
 import { Book } from "../interfaces/Book";
 
+/**
+ * This is the code for the main page of the web application.
+ */
 
 const BookList = dynamic(() => import('./components/BookList'), {
   loading: () => <p>Loading...</p>,
@@ -36,13 +39,14 @@ export default function Home() {
     }
   };
 
+  // Function to handle search
   const handleSearch = (query: string) => {
     setQuery(query);
     setPage(1);
     searchBooksByQuery(query, 1);
   };
 
-  // Infinite scroll
+  // Function to handle infinite scroll and trigger loading of more books
   const handleScroll = () => {
     if (
       window.innerHeight + document.documentElement.scrollTop >= document.documentElement.offsetHeight - 100 &&
