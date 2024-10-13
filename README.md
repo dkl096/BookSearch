@@ -49,7 +49,8 @@ Please contact author if your API key does not work.
 ![small screen](image-2.png)
 
 ## Issues to be addressed
-- User comes back to empty search result after 
+- User comes back to empty search result after pressing Back button.
+- Rate limitation may cause book details not to load.
 
 ## Future Improvements
 - Adding a feature to persist previously availabe search result
