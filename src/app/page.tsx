@@ -7,7 +7,11 @@ import SearchBar from "./components/SearchBar";
 import { Book } from "../interfaces/Book";
 
 /**
+ * Function:
  * This is the code for the main page of the web application.
+ * It consists of the search back, sticked to the top of the page.
+ * The list of the books dispalyed in grid format with infinite scroll.
+ * 
  */
 
 const BookList = dynamic(() => import('./components/BookList'), {
@@ -70,11 +74,10 @@ export default function Home() {
 
   return (
     <div>
-      <h1>BookSearch</h1>
       <SearchBar onSearch={handleSearch} />
-      <BookList books={books} />
-      {loading && <p>Loading...</p>}
-      {errorMessage && <div className="error-popup">{errorMessage}</div>}
+        <BookList books={books} />
+        {loading && <p>Loading...</p>}
+        {errorMessage && <div className="error-popup">{errorMessage}</div>}
     </div>
   );
 }

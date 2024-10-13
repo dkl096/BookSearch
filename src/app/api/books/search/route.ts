@@ -1,14 +1,17 @@
 import { NextResponse } from "next/server";
 import axios from "axios";
 
-const GOOGLE_BOOKS_BASE_URL = "https://www.googleapis.com/books/v1/volumes";
-
 /**
+ * Function:
  * This code handles API routing for searching books in Google Books API
- * @param {Request} request - HTTP request object
- * @returns {Promise<NextResponse>} - 
  * 
- * @example
+ * Parameters:
+ * Request object
+ * 
+ * Returns:
+ * JSON response containing search result from google api
+ * 
+ * Example:
  * // Successful response
  * // Request: GET /api/books/search?q=javascript&page=1
  * // Response: JSON containing Google Books API response
@@ -25,7 +28,7 @@ export async function GET(request:Request){
     }
 
     try {
-         const response = await axios.get(GOOGLE_BOOKS_BASE_URL, {
+         const response = await axios.get("https://www.googleapis.com/books/v1/volumes", {
             params: {
                 q: query,
                 startIndex,
